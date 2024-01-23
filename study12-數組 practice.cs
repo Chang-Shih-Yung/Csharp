@@ -25,7 +25,9 @@ namespace MyNamespace
             {
                 cost++;
                 count++;
+                //放裡面，因為要一直產生隨機數。放外面，只會產生一次
                 int[] randomTicket = CreateRandomTicket();
+                //把我買的彩票，帶入TicketCompare，與隨機產生的彩票方法做比較
                 level = TicketCompare(myTicket, randomTicket);
                 if (level != 0)
                 {
@@ -40,7 +42,7 @@ namespace MyNamespace
 
         }
 
-        //我買的彩票
+        //我買的彩票（方法）
         private static int[] Buyticket()
         {
             int[] score = new int[7];//七個數的數組，六紅一藍
@@ -85,7 +87,7 @@ namespace MyNamespace
         }
         static Random r = new Random();
 
-        //隨機產生球
+        //隨機產生球（方法）
         private static int[] CreateRandomTicket()
         {
             int[] score = new int[7];
@@ -103,17 +105,17 @@ namespace MyNamespace
             Array.Sort(score, 0, 6);//排序
             return score;
         }
-        //比較兩個數組，返回中獎等級
-        private static int TicketCompare(int[] ticket1, int[] ticket2)
+        //方法：比較我買的彩票號碼與隨機產生的彩票號碼，返回中獎等級
+        private static int TicketCompare(int[] MyTicket, int[] RandomTicket)
         {
             //計算紅藍球中獎數量
-            //藍
-            int BlueNumber = ticket1[6] == ticket2[6] ? 1 : 0;//存在為1，不存在為0
-            //我的第i個紅球，在隨機彩票中的紅球號碼是否存在
+            //比較藍球
+            int BlueNumber = MyTicket[6] == RandomTicket[6] ? 1 : 0;//存在為1，不存在為0
+            //比較紅球。我的第i個紅球，在隨機彩票中的紅球號碼是否存在
             int RedCount = 0;
             for (int i = 0; i < 6; i++)
             {
-                if (Array.IndexOf(ticket1, ticket2[i], 0, 6) >= 0)//查找ticket2的索引。從0開始，到6結束，索引存在的話為>1 or 0 [0,1,2,3,4,5]
+                if (Array.IndexOf(MyTicket, RandomTicket[i], 0, 6) >= 0)//查找ticket2的索引。從0開始，到6結束，索引存在的話為>1 or 0 [0,1,2,3,4,5]
                 {
                     RedCount++;//符合，則中獎數量+1
                 }

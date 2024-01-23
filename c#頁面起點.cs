@@ -45,10 +45,14 @@
 // //抓取數組頁裡的statement8
 // var statement8 = new MyClass10();
 // statement8.statement8();
-//----------------------------------------------10
-//抓取數組頁裡的statement9
-var statement8 = new MyClass11();
-statement8.statement9();
+// //----------------------------------------------11
+// //抓取數組頁裡的statement9
+// var statement9 = new MyClass11();
+// statement9.statement9();
+//----------------------------------------------12
+//抓取數組頁裡的statement10
+var statement10 = new MyClass12();
+statement10.statement10();
 
 
 
