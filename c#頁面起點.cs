@@ -33,26 +33,30 @@
 // //抓取方法頁裡的statement5
 // var statement5 = new MyClass7();
 // statement5.statement5();
-// //----------------------------------------------8
+// //----------------------------------------------9
 // //抓取方法頁裡的statement6
 // var statement6 = new MyClass8();
 // statement6.statement6();
-// //----------------------------------------------9
+// //----------------------------------------------10
 // //抓取數組頁裡的statement7
 // var statement7 = new MyClass9();
 // statement7.statement7();
-// //----------------------------------------------10
+// //----------------------------------------------11
 // //抓取數組頁裡的statement8
 // var statement8 = new MyClass10();
 // statement8.statement8();
-// //----------------------------------------------11
+// //----------------------------------------------12
 // //抓取數組頁裡的statement9
 // var statement9 = new MyClass11();
 // statement9.statement9();
-//----------------------------------------------12
-//抓取數組頁裡的statement10
-var statement10 = new MyClass12();
-statement10.statement10();
+// //----------------------------------------------13
+// //抓取數組頁裡的statement10
+// var statement10 = new MyClass12();
+// statement10.statement10();
+//----------------------------------------------14
+//抓取數組頁裡的statement11
+var statement11 = new MyClass13();
+statement11.statement11();
 
 
 
