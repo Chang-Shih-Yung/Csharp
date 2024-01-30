@@ -60,11 +60,37 @@ namespace MyNamespace
                 {2,4,0,4}
             };
 
-            //上移
+            PrintScore(map);
+            Console.WriteLine("上移");
+            map = MoveUp(map);
+            PrintScore(map);
+
+            PrintScore(map);
+            Console.WriteLine("下移");
+            map = MoveDown(map);
+            PrintScore(map);
 
 
 
         }
+
+        private static void PrintScore(int[,] array2)
+        {
+
+            for (int r = 0; r < array2.GetLength(0); r++)
+            {
+
+                for (int c = 0; c < array2.GetLength(1); c++)
+                {
+                    Console.Write(array2[r, c] + "\t");
+                }
+                Console.WriteLine();
+
+            }
+
+
+        }
+
         //定義去零方法：針對一維數組，將0移至末尾 ex.2022
         private static int[] RemoveZero(int[] array)
         {
@@ -77,7 +103,7 @@ namespace MyNamespace
                 if (array[i] != 0)
                 {
                     newArray[index] = array[i];
-                    index++;//下一個array不等於零的元素將要賦過來的值
+                    index++;//下一個array不等於零的元素將要賦過來的值(index也要跟著回圈更新)
                 }
             }
             return newArray;
@@ -88,13 +114,14 @@ namespace MyNamespace
             //將0元素放到數組最後面（合併之前遇到零，去零）
             array = RemoveZero(array);
             //合併數據：相同、相鄰、則合併（將後一個數累加到前一個元素上，後一個元素則清空）
-            //2202 變成 2220
+            //ex.2202 變成 2220
             for (int i = 0; i < array.Length - 1; i++)
             {
                 //相鄰且相同，原本是零的話就不計算合併
                 if (array[i] != 0 && array[i] == array[i + 1])
                 {
                     array[i] += array[i];
+
                     //後者要清空
                     array[i + 1] = 0;
                     //統計合併位置
@@ -106,36 +133,70 @@ namespace MyNamespace
             return array;
 
         }
-
+        //上移之動作
         private static int[,] MoveUp(int[,] map)
         {
-            //以列為單位，從上到下獲取每列的數據，形成一維數組
-            /*0,0  0,1  0,2  0,3
+            //以列為單位，"從上到下"獲取每列的數據，形成一維數組
+            /*二維陣列(x,y)
+              0,0  0,1  0,2  0,3
               1,0  1,1  1,2  1,3
               2,0  2,1  2,2  2,3
               3,0  3,1  3,2  3,3 
             */
-            //創建一維數組（獲取每行）
+            //創建一維數組（獲取x：0,1,2,3)
             int[] mergeArray = new int[map.GetLength(0)];
-
+            //y不管上還是下，回圈都是0000,1111,2222,3333
             for (int c = 0; c < map.GetLength(1); c++)
             {
-                
+
                 for (int r = 0; r < map.GetLength(0); r++)
                 {
-                    mergeArray[r] = map[r, c];
+                    mergeArray[r] = map[r, c];//從二維陣列取x出來
                 }
                 //調用合併數據方法
-                mergeArray = Merge(mergeArray);
-                //將一維數組元素 還原至原列
+                mergeArray = Merge(mergeArray);//前面Merge()合併方法是在一維陣列上，所以前面才要先從二維陣列中取一維陣列出來。
+
+                //將一維數組元素 還原至二維數組原列
                 for (int r = 0; r < map.GetLength(0); r++)
                 {
-                    map[r, c] = mergeArray[r];
+                    map[r, c] = mergeArray[r];//還x給二維陣列
                 }
             }
             return map;
 
         }
+        //下移之動作
+        private static int[,] MoveDown(int[,] map)
+        {
+            //以列為單位，"從下到上"獲取每列的數據，形成一維數組
+            /*0,0  0,1  0,2  0,3
+              1,0  1,1  1,2  1,3
+              2,0  2,1  2,2  2,3
+              3,0  3,1  3,2  3,3 
+            */
+            int[] mergeArray = new int[map.GetLength(0)];
+            //y不管上還是下，回圈都是0000,1111,2222,3333
+            for (int c = 0; c < map.GetLength(1); c++)
+            {
+
+                for (int r = map.GetLength(0) - 1; r >= 0; r--)
+                {
+                    mergeArray[3 - r] = map[r, c];//從二維陣列取x出來
+                }
+                //調用合併數據方法
+                mergeArray = Merge(mergeArray);//前面Merge()合併方法是在一維陣列上，所以前面才要先從二維陣列中取一維陣列出來。
+
+                //將一維數組元素 還原至二維數組原列
+                for (int r = map.GetLength(0) - 1; r >= 0; r--)
+                {
+                    map[r, c] = mergeArray[3 - r];//還x給二維陣列
+                }
+            }
+            return map;
+
+        }
+
+
 
 
 
