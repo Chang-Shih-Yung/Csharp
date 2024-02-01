@@ -148,7 +148,7 @@ namespace MyNamespace
             //y不管上還是下，回圈都是0000,1111,2222,3333
             for (int c = 0; c < map.GetLength(1); c++)
             {
-
+                //map.GetLength(0)=4
                 for (int r = 0; r < map.GetLength(0); r++)
                 {
                     mergeArray[r] = map[r, c];//從二維陣列取x出來

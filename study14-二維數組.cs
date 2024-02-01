@@ -19,6 +19,10 @@ namespace MyNamespace
             int[,] array1 = new int[2, 3];//行列數，非索引值
             array1[0, 0] = 1;
             array1[1, 1] = 2;
+            
+            //獲取行(x)列(y)的值
+            //array1.GetLength(0) = 2;
+            //array1.GetLength(1) = 3;
 
 
             //打印二維數組
