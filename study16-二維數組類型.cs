@@ -39,12 +39,30 @@ namespace MyNamespace
                 //array[r].Length交錯數組每行裡面的元素個數（可以理解為：列數）
                 for (int c = 0; c < array[r].Length; c++)
                 {
-                    Console.Write(array[r][c]+ "\t");
+                    Console.Write(array[r][c] + "\t");
                 }
                 Console.WriteLine();
             }
 
+            //參數數組params
+            int sum = add(1, 2, 3, 4, 5);
+            Console.WriteLine(sum);//15
 
+        }
+        //參數數組params
+        //對於方法內部而言：就是個普通數組
+        //對於方法外部（調用者）而言，可以直接傳入多個參數，而不需要創建數組
+        //傳遞一組數據類型相同傳遞一組數據類型相同的變量集合
+        //可以不傳遞參數
+        //作用：簡化調用者調用方法的代碼
+        private static int add(params int[] array)
+        {
+            int sum = 0;
+            foreach (int i in array)
+            {
+                sum += i;
+            }
+            return sum;
         }
 
 
