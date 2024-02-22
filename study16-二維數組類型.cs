@@ -48,6 +48,8 @@ namespace MyNamespace
             int sum = add(1, 2, 3, 4, 5);
             Console.WriteLine(sum);//15
 
+            
+            
         }
         //參數數組params
         //對於方法內部而言：就是個普通數組
