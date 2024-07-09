@@ -63,7 +63,7 @@
 // statement12.statement12();
 //----------------------------------------------16
 //抓取數組頁裡的statement13
-var statement13 = new MyClass15();
+MyClass15 statement13 = new MyClass15();
 statement13.statement13();
 
 

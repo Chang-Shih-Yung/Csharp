@@ -11,14 +11,14 @@ namespace MyNamespace
 
             //交錯數組：不規則表格，每個元素都是一維數組
             int[][] array = new int[3][];//具有三個元素的交錯數組，每個元素都是一個一維數組
-            //創建創建一維數組，賦值給交錯數組的每個元素
-            //第一行，有....2列
+                                         //創建創建一維數組，賦值給交錯數組的每個元素
+                                         //第一行，有....2列
             array[0] = new int[2];//2列
-            //第二行，有....4列
+                                  //第二行，有....4列
             array[1] = new int[4];//4列
-            //第三行，有....1列
+                                  //第三行，有....1列
             array[2] = new int[1];//1列
-            //交錯數組賦值
+                                  //交錯數組賦值
             array[0][0] = 1;//第一行第一列的值為1
 
 
@@ -48,8 +48,8 @@ namespace MyNamespace
             int sum = add(1, 2, 3, 4, 5);
             Console.WriteLine(sum);//15
 
-            
-            
+
+
         }
         //參數數組params
         //對於方法內部而言：就是個普通數組
@@ -65,6 +65,7 @@ namespace MyNamespace
                 sum += i;
             }
             return sum;
+
         }
 
 
